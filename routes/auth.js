@@ -59,7 +59,7 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
     res.redirect('/dashboard');
   });
 
-router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+router.get('/facebook', passport.authenticate('facebook'));
 router.get('/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }),
   (req, res) => {
     res.redirect('/dashboard');

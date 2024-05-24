@@ -1,8 +1,4 @@
-Sure! Here's a comprehensive `README.md` file that includes instructions on how to use all routes using Postman, with OAuth routes limited to Facebook and Twitter.
-
-**README.md**
-```markdown
-# My Auth App
+# Tanmya Vishvakarma Voosh Submission
 
 This is a Node.js application that provides user authentication using OAuth with Facebook and Twitter.
 
