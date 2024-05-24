@@ -11,8 +11,7 @@ module.exports = function (passport) {
       {
         clientID: process.env.FACEBOOK_APP_ID,
         clientSecret: process.env.FACEBOOK_APP_SECRET,
-        callbackURL: "/auth/facebook/callback",
-        profileFields: ["id", "displayName", "photos", "email"],
+        callbackURL: `${process.env.BASE_URL}/auth/facebook/callback`,
       },
       async (accessToken, refreshToken, profile, done) => {
         const newUser = {
@@ -43,7 +42,7 @@ module.exports = function (passport) {
       {
         consumerKey: process.env.TWITTER_CONSUMER_KEY,
         consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-        callbackURL: "/auth/twitter/callback",
+        callbackURL: `${process.env.BASE_URL}/auth/twitter/callback`,
         includeEmail: true,
       },
       async (token, tokenSecret, profile, done) => {
