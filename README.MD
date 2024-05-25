@@ -33,6 +33,7 @@ This is a Node.js application that provides user authentication using OAuth with
    MONGO_URI=your_mongo_connection_string
    SESSION_SECRET=your_session_secret
    JWT_SECRET=your_jwt_secret
+   BASE_URL=http://localhost:5000
 
    FACEBOOK_APP_ID=your_facebook_app_id
    FACEBOOK_APP_SECRET=your_facebook_app_secret
