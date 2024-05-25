@@ -94,16 +94,6 @@ This is a Node.js application that provides user authentication using OAuth with
   }
   ```
 
-### Facebook OAuth
-1. **URL:** `/auth/facebook`
-   - **Method:** `GET`
-   - **Description:** Redirects to Facebook for authentication.
-
-2. **URL:** `/auth/facebook/callback`
-   - **Method:** `GET`
-   - **Description:** Facebook will redirect to this endpoint after authentication.
-   - **Response:** Redirects to `/dashboard`.
-
 ### Twitter OAuth
 1. **URL:** `/auth/twitter`
    - **Method:** `GET`
@@ -112,6 +102,16 @@ This is a Node.js application that provides user authentication using OAuth with
 2. **URL:** `/auth/twitter/callback`
    - **Method:** `GET`
    - **Description:** Twitter will redirect to this endpoint after authentication.
+   - **Response:** Redirects to `/dashboard`.
+
+### Facebook OAuth
+1. **URL:** `/auth/facebook`
+   - **Method:** `GET`
+   - **Description:** Redirects to Facebook for authentication.
+
+2. **URL:** `/auth/facebook/callback`
+   - **Method:** `GET`
+   - **Description:** Facebook will redirect to this endpoint after authentication.
    - **Response:** Redirects to `/dashboard`.
 
 ### Get Current User's Profile
