@@ -1,8 +1,19 @@
 const express = require('express');
+const multer = require('multer');
 const auth = require('../middleware/auth');
 const User = require('../models/User');
 const router = express.Router();
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  }
+});
+
+const upload = multer({ storage: storage });
 
 router.get('/me', auth, async (req, res) => {
   try {
@@ -38,6 +49,22 @@ router.put('/me', auth, async (req, res) => {
   }
 });
 
+router.post('/me/photo', auth, upload.single('photo'), async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+
+    user.photo = req.file ? `/uploads/${req.file.filename}` : user.photo;
+    await user.save();
+
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
 
 router.get('/public', async (req, res) => {
   try {
@@ -48,7 +75,6 @@ router.get('/public', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
-
 
 router.get('/all', auth, async (req, res) => {
   if (req.user.role !== 'admin') {

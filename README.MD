@@ -1,13 +1,12 @@
 # Tanmya Vishvakarma Voosh Submission
 
-This is a Node.js application that provides user authentication using OAuth with Facebook and Twitter.
-
 ## Features
 - User registration and login
 - OAuth login with Facebook and Twitter
 - Profile visibility settings (public/private)
 - Admin can view all profiles, including private ones
 - Users can edit their profile
+- Users can upload a new photo or provide an image URL
 
 ## Getting Started
 
@@ -45,6 +44,10 @@ This is a Node.js application that provides user authentication using OAuth with
    ```bash
    npm start
    ```
+
+### Admin Account Credentials to Access Protected Routes
+- **email:** `admin@voosh.com`
+- **password:** `adminvoosh`
 
 ## API Endpoints
 
@@ -166,6 +169,31 @@ This is a Node.js application that provides user authentication using OAuth with
   }
   ```
 
+### Upload New Photo
+- **URL:** `/users/me/photo`
+- **Method:** `POST`
+- **Headers:**
+  ```plaintext
+  x-auth-token: your_jwt_token
+  ```
+- **Body:** (form-data)
+  - **Key:** `photo`
+  - **Type:** `File`
+  - **Value:** (Select a file from your computer)
+- **Response:**
+  ```json
+  {
+    "_id": "user_id",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "bio": "Bio text",
+    "phone": "1234567890",
+    "profileVisibility": "public",
+    "photo": "/uploads/photo_filename",
+    "role": "user"
+  }
+  ```
+
 ### Get Public Profiles
 - **URL:** `/users/public`
 - **Method:** `GET`
@@ -238,12 +266,23 @@ This is a Node.js application that provides user authentication using OAuth with
    - Paste the profile update JSON payload.
    - Send the request to update the user's profile.
 
-5. **Get Public Profiles:**
+5. **Upload New Photo:**
+   - Open Postman.
+   - Create a new `POST` request.
+   - Set the URL to `http://localhost:5000/users/me/photo`.
+   - In the `Headers` tab, add `x-auth-token` with the JWT token.
+   - In the `Body` tab, select `form-data`.
+   - Under `Key`, enter `photo`.
+   - Under `Type`, select `File`.
+   - Under `Value`, select a file from your computer.
+   - Send the request to upload the new photo.
+
+6. **Get Public Profiles:**
    - Create a new `GET` request.
    - Set the URL to `http://localhost:5000/users/public`.
    - Send the request to get a list of public profiles.
 
-6. **Get All Profiles (Admin Only):**
+7. **Get All Profiles (Admin Only):**
    - Create a new `GET` request.
    - Set the URL to `http://localhost:5000/users/all`.
    - In the `Headers` tab, add `x-auth-token` with the JWT token.
@@ -253,5 +292,3 @@ This is a Node.js application that provides user authentication using OAuth with
 - Replace `your_mongo_connection_string`, `your_session_secret`, `your_jwt_secret`, `your_facebook_app_id`, `your_facebook_app_secret`, `your_twitter_consumer_key`, and `your_twitter_consumer_secret` with your actual credentials.
 - For OAuth login, you will need to set up your Facebook and Twitter applications to get the required credentials and configure the redirect URLs.
 ```
-
-This `README.md` file provides a comprehensive guide on setting up the project, using the endpoints with Postman, and configuring OAuth with Facebook and Twitter.
