@@ -8,6 +8,14 @@
 - Users can edit their profile
 - Users can upload a new photo or provide an image URL
 
+## Deployed Version
+A deployed version of this application is available for immediate testing. You can use the following link to access the live version and start testing the routes directly:
+[Deployed Application Link](https://tanmya-voosh-submission.onrender.com)
+
+### Admin Credentials for accessing protected routes
+- **email:** admin@voosh.com
+- **password:** adminvoosh
+
 ## Getting Started
 
 ### Prerequisites
@@ -32,6 +40,7 @@
    MONGO_URI=your_mongo_connection_string
    SESSION_SECRET=your_session_secret
    JWT_SECRET=your_jwt_secret
+   BASE_URL=http://localhost:5000
 
    FACEBOOK_APP_ID=your_facebook_app_id
    FACEBOOK_APP_SECRET=your_facebook_app_secret
@@ -44,10 +53,6 @@
    ```bash
    npm start
    ```
-
-### Admin Account Credentials to Access Protected Routes
-- **email:** `admin@voosh.com`
-- **password:** `adminvoosh`
 
 ## API Endpoints
 
@@ -96,16 +101,6 @@
   }
   ```
 
-### Facebook OAuth
-1. **URL:** `/auth/facebook`
-   - **Method:** `GET`
-   - **Description:** Redirects to Facebook for authentication.
-
-2. **URL:** `/auth/facebook/callback`
-   - **Method:** `GET`
-   - **Description:** Facebook will redirect to this endpoint after authentication.
-   - **Response:** Redirects to `/dashboard`.
-
 ### Twitter OAuth
 1. **URL:** `/auth/twitter`
    - **Method:** `GET`
@@ -114,6 +109,16 @@
 2. **URL:** `/auth/twitter/callback`
    - **Method:** `GET`
    - **Description:** Twitter will redirect to this endpoint after authentication.
+   - **Response:** Redirects to `/dashboard`.
+
+### Facebook OAuth
+1. **URL:** `/auth/facebook`
+   - **Method:** `GET`
+   - **Description:** Redirects to Facebook for authentication.
+
+2. **URL:** `/auth/facebook/callback`
+   - **Method:** `GET`
+   - **Description:** Facebook will redirect to this endpoint after authentication.
    - **Response:** Redirects to `/dashboard`.
 
 ### Get Current User's Profile
