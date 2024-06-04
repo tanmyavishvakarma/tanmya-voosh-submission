@@ -26,7 +26,7 @@ A deployed version of this application is available for immediate testing. You c
 ### Installation
 1. Clone the repository:
    ```bash
-   https://github.com/tanmyavishvakarma/tanmya-voosh-submission.git
+   git clone https://github.com/tanmyavishvakarma/tanmya-voosh-submission.git
    cd tanmya-voosh-submission
    ```
 
