@@ -26,8 +26,8 @@ A deployed version of this application is available for immediate testing. You c
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/my-auth-app.git
-   cd my-auth-app
+   https://github.com/tanmyavishvakarma/tanmya-voosh-submission.git
+   cd tanmya-voosh-submission
    ```
 
 2. Install dependencies:
